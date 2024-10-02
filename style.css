@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background-color: hsl(210, 46%, 95%);
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 500;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "one one two three"
+    "four five five three";
+    gap: 30px;
+}
+
+.one {
+    grid-area: one;
+    background-color: hsl(263, 55%, 52%);
+    background-image: url(images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position: 80% 0%;
+}
+
+.one img {
+    border: 2px solid hsl(263, 77%, 66%);
+}
+
+.two {
+    grid-area: two;
+    background-color: hsl(217, 19%, 35%);
+}
+
+.three {
+    grid-area: three;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.four {
+    grid-area: four;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.five {
+    grid-area: five;
+    background-color: hsl(219, 29%, 14%);
+}
+
+.five img {
+    border: 2px solid hsl(263, 55%, 52%);
+}
+
+.one .name, .two .name, .five .name {
+    color: hsl(0, 0%, 100%);
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+}
+
+.one .graduted, .two .graduted, .five .graduted {
+    color: hsla(0, 0%, 100%, 0.5);
+    letter-spacing: 0.05rem;
+}
+
+.one h2, .two h2, .five h2 {
+    font-size: 2.2rem;
+    color: hsl(0, 0%, 100%);
+    font-weight: 600;
+}
+
+.one .description, .two .description, .five .description {
+    color: hsla(0, 0%, 100%, 0.7);
+    font-size: 1.42rem;
+    line-height: 2rem;
+}
+
+.three .name, .four .name {
+    color: hsl(217, 19%, 35%);
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+}
+
+.three .graduted, .four .graduted {
+    color: hsl(217, 19%, 35%, 0.5);
+    letter-spacing: 0.05rem;
+}
+
+.three h2, .four h2 {
+    font-size: 2.3rem;
+    color: hsl(217, 19%, 35%);
+    font-weight: 600;
+}
+
+.three .description, .four .description {
+    color: hsl(217, 19%, 35%, 0.7);
+    font-size: 1.44rem;
+    line-height: 2rem;
+}
+
+.box {
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 5px 5px 10px hsl(0, 0%, 81%);
+}
+
+.box .person {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.box .person img {
+    width: 30px;
+    border-radius: 50%;
+}
+
+@media (max-width: 46.875rem) {    
+    main {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .three {
+        order: 10;
+    }
+}
+
+
