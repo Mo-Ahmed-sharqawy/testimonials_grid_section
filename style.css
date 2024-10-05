@@ -1,145 +1,160 @@
-* {
+*, *::after, *::before {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    line-height: 1.4;
 }
 
 html {
     font-size: 10px;
+    font-family: "Barlow Semi Condensed", sans-serif;
 }
 
 body {
     background-color: hsl(210, 46%, 95%);
-    font-family: "Barlow Semi Condensed", sans-serif;
-    font-weight: 500;
     min-height: 100vh;
-    padding: 40px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 main {
-    width: 1200px;
+    width: 120rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
     grid-template-areas: "one one two three"
     "four five five three";
-    gap: 30px;
+    gap: 3rem;
 }
 
-.one {
+main .cont {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px hsl(0, 0%, 81%);
+}
+
+main .one {
     grid-area: one;
     background-color: hsl(263, 55%, 52%);
-    background-image: url(images/bg-pattern-quotation.svg);
-    background-repeat: no-repeat;
-    background-position: 80% 0%;
+    position: relative;
+    z-index: -2;
 }
 
-.one img {
-    border: 2px solid hsl(263, 77%, 66%);
+main .one::before {
+    content: url(images/bg-pattern-quotation.svg);
+    position: absolute;
+    top: 0;
+    right: 10rem;
+    z-index: -1;
 }
 
-.two {
+main .two {
     grid-area: two;
     background-color: hsl(217, 19%, 35%);
 }
 
-.three {
+main .three {
     grid-area: three;
     background-color: hsl(0, 0%, 100%);
 }
 
-.four {
+main .four {
     grid-area: four;
     background-color: hsl(0, 0%, 100%);
 }
 
-.five {
+main .five {
     grid-area: five;
     background-color: hsl(219, 29%, 14%);
 }
 
-.five img {
-    border: 2px solid hsl(263, 55%, 52%);
-}
-
-.one .name, .two .name, .five .name {
+main .one h3, main .two h3, main .five h3 {
     color: hsl(0, 0%, 100%);
     font-size: 1.3rem;
-    margin-bottom: 2px;
 }
 
-.one .graduted, .two .graduted, .five .graduted {
+main .one .graduate, main .two .graduate, main .five .graduate {
     color: hsla(0, 0%, 100%, 0.5);
-    letter-spacing: 0.05rem;
+    font-weight: 500;
 }
 
-.one h2, .two h2, .five h2 {
+main .one h1, main .two h1, main .five h1 {
     font-size: 2.2rem;
     color: hsl(0, 0%, 100%);
-    font-weight: 600;
+    font-weight: 700;
 }
-
-.one .description, .two .description, .five .description {
+main .one .desc, main .two .desc, main .five .desc {
     color: hsla(0, 0%, 100%, 0.7);
-    font-size: 1.42rem;
-    line-height: 2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
 }
 
-.three .name, .four .name {
-    color: hsl(217, 19%, 35%);
+main .three h3, main .four h3 {
     font-size: 1.3rem;
-    margin-bottom: 2px;
-}
-
-.three .graduted, .four .graduted {
-    color: hsl(217, 19%, 35%, 0.5);
-    letter-spacing: 0.05rem;
-}
-
-.three h2, .four h2 {
-    font-size: 2.3rem;
     color: hsl(217, 19%, 35%);
-    font-weight: 600;
 }
 
-.three .description, .four .description {
-    color: hsl(217, 19%, 35%, 0.7);
-    font-size: 1.44rem;
-    line-height: 2rem;
+main .three .graduate, main .four .graduate {
+    color: hsla(217, 19%, 35%, 0.5);
+    font-weight: 500;
 }
 
-.box {
-    padding: 30px;
-    border-radius: 10px;
+main .three h1, main .four h1 {
+    color: hsl(217, 19%, 35%);
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+main .three .desc, main .four .desc {
+    color: hsla(217, 19%, 35%, 0.7);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+main .cont .person {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    box-shadow: 5px 5px 10px hsl(0, 0%, 81%);
-}
-
-.box .person {
-    display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 1.2rem;
 }
 
-.box .person img {
+main .person img {
     width: 30px;
     border-radius: 50%;
 }
 
-@media (max-width: 46.875rem) {    
-    main {
-        display: flex;
-        flex-wrap: wrap;
+@media (max-width: 75rem) {
+    body {
+        padding: 40px 0px;
     }
-
-    .three {
-        order: 10;
+    
+    main {
+        width: fit-content;
+        grid-template-columns: repeat(2, 300px);
+        grid-template-areas: "one two"
+        "one four"
+        "three five"
+        "three five";
+        place-content: center;
     }
 }
 
-
+@media (max-width: 40.625rem) {
+    body {
+        padding: 40px 20px;
+    }
+    
+    main {
+        grid-template-columns: auto;
+        grid-template-areas: "one"
+        "two"
+        "three"
+        "four"
+        "five";
+        place-content: center;
+    }
+}
